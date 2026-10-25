@@ -302,3 +302,16 @@ a {
     font-size: 31px;
   }
 }
+
+
+.login-link img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.btn img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
