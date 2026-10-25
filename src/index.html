@@ -1,95 +1,158 @@
-
 <!doctype html>
 <html lang="uk">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Campus — маркетплейс для студентів</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Campus — оголошення поруч</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-
-  <!-- Шапка сайту -->
   <header class="site-header">
     <div class="container header-inner">
-
-      <a href="index.html" class="logo"
-         aria-label="Campus — головна сторінка">
-        <img src="assets/logo.png" alt="Логотип Campus">
+      <a class="logo" href="index.html" aria-label="Campus — головна">
+        <img src="assets/logo.png" alt="Campus">
       </a>
-
       <nav class="main-nav" aria-label="Головна навігація">
-        <a href="#listings">Оголошення</a>
-        <a href="#categories">Категорії</a>
-        <a href="#how-it-works">Як це працює</a>
+        <a href="#catalog">Оголошення</a>
+        <a href="#catalog">Категорії</a>
+        <a href="#about">Як це працює</a>
       </nav>
-
       <div class="header-actions">
-        <a href="#login" class="login-link">
-          <img src="assets/user.png" alt="" aria-hidden="true">
-          Увійти
-        </a>
-
-        <a href="#create-listing" class="btn btn-primary">
-          <img src="assets/plus.png" alt="" aria-hidden="true">
-          Подати оголошення
-        </a>
+        <a class="login-link" href="#login"><img src="assets/user.png" alt="">Увійти</a>
+        <a class="btn btn-primary" href="#catalog"><img src="assets/plus.png" alt="">Подати оголошення</a>
       </div>
-
     </div>
   </header>
 
-  <!-- Головний вміст -->
   <main>
     <section class="hero" aria-labelledby="hero-title">
       <div class="container">
         <div class="hero-panel">
-
           <div class="hero-content">
-            <p class="hero-label">
-              МАРКЕТПЛЕЙС ДЛЯ СВОЇХ
-            </p>
-
-            <h1 id="hero-title">
-              Знаходь потрібне.<br>
-              Віддавай зайве.
-            </h1>
-
-            <p class="hero-description">
-              Тисячі оголошень поруч — від техніки й авто
-              до житла, роботи та добрих знахідок.
-            </p>
+            <p class="hero-label">МАРКЕТПЛЕЙС ДЛЯ СВОЇХ</p>
+            <h1 id="hero-title">Знаходь потрібне.<br>Віддавай зайве.</h1>
+            <p class="hero-description">Тисячі оголошень поруч — від техніки й авто до житла, роботи та добрих знахідок.</p>
           </div>
-
           <div class="hero-illustration" aria-hidden="true">
             <img src="assets/campus.png" alt="">
           </div>
-
         </div>
       </div>
     </section>
+
+    <section class="search-section container" aria-label="Пошук оголошень">
+      <form class="search-panel" id="search-form" role="search">
+        <div class="field-group">
+          <label for="search-query">Назва товару</label>
+          <div class="field-shell">
+            <svg class="field-icon" width="19" height="19" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/>
+              <path d="m16 16 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <input id="search-query" name="q" type="search" placeholder="Що ви шукаєте?" autocomplete="off">
+          </div>
+        </div>
+        <div class="field-group">
+          <label for="city-select">Місто</label>
+          <div class="field-shell select-shell">
+            <select id="city-select" name="city">
+              <option value="">Вся Україна</option>
+              <option value="Київ">Київ</option>
+              <option value="Львів">Львів</option>
+              <option value="Харків">Харків</option>
+              <option value="Одеса">Одеса</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn btn-primary search-submit" type="submit">Знайти оголошення</button>
+      </form>
+    </section>
+
+    <section class="catalog container" id="catalog" aria-labelledby="catalog-title">
+      <div class="section-heading">
+        <div>
+          <h2 id="catalog-title">Свіжі знахідки для вас</h2>
+          <p>Речі, яким потрібен новий власник</p>
+        </div>
+        <span class="catalog-count" id="result-count" aria-live="polite">4 оголошення</span>
+      </div>
+      <div class="product-grid" id="product-grid">
+        <article class="product-card" data-title="Настільна лампа для навчання" data-city="Львів">
+          <div class="product-image">
+            <img src="assets/lamp.jpg" alt="Настільна лампа з регульованою ніжкою">
+            <button class="favorite" type="button" aria-label="Додати настільну лампу до обраного" aria-pressed="false">♡</button>
+          </div>
+          <div class="product-details">
+            <h3>Настільна лампа для навчання</h3>
+            <p class="product-description">Регульована висота, тепле світло</p>
+            <p class="product-price">650 ₴</p>
+            <p class="product-meta">Львів · 2 год тому</p>
+          </div>
+        </article>
+        <article class="product-card" data-title="Кавомашина для дому" data-city="Київ">
+          <div class="product-image">
+            <img src="assets/coffee.jpg" alt="Компактна біла кавомашина з чашкою">
+            <button class="favorite" type="button" aria-label="Додати кавомашину до обраного" aria-pressed="false">♡</button>
+          </div>
+          <div class="product-details">
+            <h3>Кавомашина для дому</h3>
+            <p class="product-description">Працює чудово, є інструкція</p>
+            <p class="product-price">2 400 ₴</p>
+            <p class="product-meta">Київ · 5 год тому</p>
+          </div>
+        </article>
+        <article class="product-card" data-title="Міський рюкзак для ноутбука та щоденних поїздок" data-city="Харків">
+          <div class="product-image">
+            <img src="assets/backpack.jpg" alt="Синій міський рюкзак із передньою кишенею">
+            <button class="favorite" type="button" aria-label="Додати рюкзак до обраного" aria-pressed="false">♡</button>
+          </div>
+          <div class="product-details">
+            <h3>Міський рюкзак для ноутбука та щоденних поїздок</h3>
+            <p class="product-description">Вміщує ноутбук до 15 дюймів</p>
+            <p class="product-price">890 ₴</p>
+            <p class="product-meta">Харків · вчора</p>
+          </div>
+        </article>
+        <article class="product-card" data-title="Акустична гітара для початківців" data-city="Одеса">
+          <div class="product-image">
+            <img src="assets/guitar.jpg" alt="Коричнева акустична гітара">
+            <button class="favorite" type="button" aria-label="Додати гітару до обраного" aria-pressed="false">♡</button>
+          </div>
+          <div class="product-details">
+            <h3>Акустична гітара для початківців</h3>
+            <p class="product-description">У комплекті чохол і медіатор</p>
+            <p class="product-price">1 800 ₴</p>
+            <p class="product-meta">Одеса · 2 дні тому</p>
+          </div>
+        </article>
+      </div>
+      <p id="empty-state" class="empty-state" role="status" hidden>За вашим запитом нічого не знайдено. Спробуйте іншу назву або місто.</p>
+    </section>
+
+    <section class="closing-section container" id="about">
+      <div>
+        <h2>Зайве для вас — знахідка для когось</h2>
+        <p>Створіть оголошення за кілька хвилин. Це безкоштовно.</p>
+        <a class="btn btn-light" href="#catalog">Переглянути оголошення</a>
+      </div>
+      <div class="closing-mark" aria-hidden="true">✦</div>
+    </section>
   </main>
 
-  <!-- Підвал сайту -->
   <footer class="site-footer">
     <div class="container footer-inner">
-
-      <a href="index.html" class="logo"
-         aria-label="Campus — головна сторінка">
-        <img src="assets/logo.png" alt="Логотип Campus">
+      <a class="logo" href="index.html" aria-label="Campus — головна">
+        <img src="assets/logo.png" alt="Campus">
       </a>
-
       <nav class="footer-nav" aria-label="Додаткова навігація">
         <a href="#about">Про Campus</a>
-        <a href="#safety">Безпека</a>
-        <a href="#help">Допомога</a>
-        <a href="#rules">Правила</a>
+        <a href="#about">Безпека</a>
+        <a href="#about">Допомога</a>
+        <a href="#about">Правила</a>
       </nav>
-
       <p class="copyright">© 2026 Campus</p>
-
     </div>
   </footer>
-
 </body>
 </html>
